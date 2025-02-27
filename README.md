@@ -28,4 +28,4 @@ A comprehensive CSS for creating consistent, professional HR policy documents wi
    Add this line to any HTML (or Dayforce custom code editor) in the `<head>`:
    ```html
    <link rel="stylesheet"
-         href="https://chrisdoubleu.github.io/Dayforce-Style-Guide/HR-Policy-Document-Stylesheet-v1.0.css">
+         href="https://chrisdoubleu.github.io/Dayforce-Style-Guide/HR-Policy-Document-Stylesheet-v1.1.css">
