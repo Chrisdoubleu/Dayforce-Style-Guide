@@ -1,0 +1,566 @@
+/* 
+   Policy Document Stylesheet for Dayforce XML Forms
+   Last Updated: February 27, 2025
+   
+   This CSS is designed to be embedded within <RichTextControl> elements
+   in Dayforce XML forms. Split between header and content sections.
+*/
+
+/* Base Typography and Colors */
+body, div, p, li, table, td {
+  font-family: Aptos, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #4a4a4a;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+/* Font Declaration (use fallbacks in case custom fonts aren't available) */
+@font-face {
+  font-family: 'Aptos Display';
+  src: url('fonts/AptosDisplay.woff2') format('woff2'),
+       url('fonts/AptosDisplay.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Document Container */
+.document-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 40px;
+  background-color: #fafafa;
+  min-height: 100vh;
+}
+
+/* HEADER SECTION STYLES */
+.header-box {
+  background: linear-gradient(to right, #f8f9fa 0%, #f0f2f5 100%);
+  padding: 28px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  border-left: 5px solid #943634;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+/* Subtle decorative element */
+.header-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle at top right, rgba(148,54,52,0.05) 0%, transparent 70%);
+  z-index: 0;
+}
+
+/* Main Heading */
+h1 {
+  color: #943634;
+  font-size: 26px;
+  letter-spacing: -0.3px;
+  margin-top: 0;
+  margin-bottom: 22px;
+  border-bottom: 2px solid;
+  border-image: linear-gradient(to right, #943634 70%, transparent) 1;
+  padding-bottom: 12px;
+  font-weight: bold;
+  font-family: 'Aptos Display', system-ui, sans-serif;
+  position: relative;
+}
+
+/* Meta information table styling */
+.meta-table {
+  width: auto;
+  border-collapse: separate;
+  border-spacing: 0 2px;
+}
+
+.meta-label {
+  font-size: 14px;
+  padding: 5px 12px 5px 0;
+  color: #4a4a4a;
+  font-weight: 500;
+}
+
+.meta-value {
+  font-size: 14px;
+  padding: 5px 0;
+  color: #595959;
+}
+
+/* CONTENT SECTION STYLES */
+/* Base container for all sections */
+.content-section {
+  background: white;
+  padding: 24px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.02);
+  margin-bottom: 22px;
+  border-top: 3px solid transparent;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+/* Section hover state */
+.content-section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+  border-top-color: rgba(148,54,52,0.15);
+}
+
+/* Section headings */
+h2 {
+  color: #943634;
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-family: 'Aptos Display', system-ui, sans-serif;
+  font-weight: bold;
+  position: relative;
+  display: inline-block;
+}
+
+/* Subtle indicator for section headings */
+h2::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background-color: rgba(148,54,52,0.3);
+  border-radius: 2px;
+}
+
+/* H3 styling */
+h3 {
+  color: #943634;
+  font-size: 18px;
+  margin-top: 16px;
+  margin-bottom: 12px;
+  font-family: 'Aptos Display', system-ui, sans-serif;
+  font-weight: bold;
+}
+
+/* Enhanced paragraph styling */
+.content-text {
+  margin: 8px 0 16px 0;
+  color: #505050;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.content-section .content-text:last-child {
+  margin-bottom: 0;
+}
+
+/* Lead paragraph */
+.lead-text {
+  font-size: 17px;
+  line-height: 1.5;
+  color: #262626;
+  margin-bottom: 20px;
+}
+
+/* Definition term styling */
+.definition-term {
+  display: block;
+  font-size: 15px;
+  color: #262626;
+  font-family: 'Aptos Display', system-ui, sans-serif;
+  font-weight: 600;
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 12px;
+}
+
+/* Visual marker for definition terms */
+.definition-term::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 16px;
+  background-color: rgba(148,54,52,0.6);
+  border-radius: 2px;
+}
+
+/* Subsection heading */
+.subsection-heading {
+  display: block;
+  font-size: 15px;
+  color: #262626;
+  font-family: 'Aptos Display', system-ui, sans-serif;
+  font-weight: 600;
+  margin: 16px 0 8px 0;
+}
+
+/* Sub-subsection heading */
+.sub-subsection-heading {
+  display: block;
+  font-size: 15px;
+  color: #262626;
+  font-family: 'Aptos Display', system-ui, sans-serif;
+  font-weight: 600;
+  font-style: italic;
+  margin: 14px 0 6px 12px;
+  padding-left: 10px;
+  border-left: 2px solid rgba(148,54,52,0.3);
+}
+
+/* Text emphasis styles */
+.strong-text {
+  font-weight: 600;
+  color: #262626;
+}
+
+.critical-text {
+  font-weight: 600;
+  color: #000000;
+}
+
+.text-muted {
+  color: #595959;
+  font-size: 14px;
+}
+
+/* Enhanced list styling */
+.enhanced-list {
+  padding-left: 20px;
+  list-style-type: none;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.enhanced-list li {
+  color: #505050;
+  font-size: 15px;
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 8px;
+}
+
+.enhanced-list li::before {
+  content: "•";
+  position: absolute;
+  left: -12px;
+  color: #943634;
+  font-size: 16px;
+}
+
+/* Enhanced ordered list */
+.enhanced-ol {
+  padding-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.enhanced-ol li {
+  color: #505050;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+/* Secondary list styles */
+.secondary-list {
+  padding-left: 20px;
+  list-style-type: none;
+  margin: 12px 0 20px 0;
+}
+
+.secondary-list li {
+  position: relative;
+  margin-bottom: 10px;
+  padding-left: 12px;
+  color: #505050;
+  font-size: 15px;
+}
+
+.secondary-list li::before {
+  content: "•";
+  position: absolute;
+  left: -5px;
+  color: #943634;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Secondary ordered list */
+.secondary-list-ordered {
+  padding-left: 20px;
+  margin: 12px 0 20px 0;
+}
+
+.secondary-list-ordered li {
+  margin-bottom: 10px;
+  color: #505050;
+  font-size: 15px;
+}
+
+/* Tertiary list styles */
+.tertiary-content {
+  margin-bottom: 16px;
+  padding-left: 16px;
+}
+
+.tertiary-list {
+  margin: 8px 0 16px 0;
+  padding-left: 16px;
+  list-style-type: none;
+}
+
+.tertiary-list li {
+  position: relative;
+  margin-bottom: 6px;
+  padding-left: 8px;
+  color: #505050;
+  font-size: 15px;
+}
+
+.tertiary-list li::before {
+  content: "○";
+  position: absolute;
+  left: -5px;
+  color: #943634;
+  font-size: 15px;
+}
+
+/* Definition blocks */
+div[style*="margin-bottom: 15px;"] {
+  margin-bottom: 15px;
+}
+
+/* Steps list */
+.steps-list {
+  counter-reset: steps;
+  list-style-type: none;
+  margin: 12px 0 24px 0;
+  padding-left: 8px;
+}
+
+.steps-list li {
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 16px;
+  min-height: 30px;
+  color: #505050;
+  font-size: 15px;
+}
+
+.steps-list li::before {
+  counter-increment: steps;
+  content: counter(steps);
+  position: absolute;
+  left: 0;
+  top: -2px;
+  width: 28px;
+  height: 28px;
+  background-color: #943634;
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 28px;
+  font-weight: bold;
+}
+
+/* Notice panels */
+.policy-notice {
+  background-color: #fff8dc;
+  border-left: 4px solid #f0e68c;
+  padding: 12px 16px;
+  margin: 16px 0;
+  border-radius: 4px;
+}
+
+.policy-warning {
+  background-color: #fff5f5;
+  border-left: 4px solid #ffcccc;
+  padding: 12px 16px;
+  margin: 16px 0;
+  border-radius: 4px;
+}
+
+.policy-callout {
+  background-color: #f5f9ff;
+  border-left: 4px solid #cce0ff;
+  padding: 12px 16px;
+  margin: 16px 0;
+  border-radius: 4px;
+}
+
+/* Checkbox styling for acknowledgment */
+.form-checkbox {
+  position: relative;
+  padding-left: 34px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 15px;
+  color: #505050;
+  line-height: 1.5;
+  margin: 8px 0;
+}
+
+.form-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 22px;
+  width: 22px;
+  background-color: #f5f5f5;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+}
+
+.form-checkbox:hover input ~ .checkmark {
+  background-color: #eaeaea;
+}
+
+.form-checkbox input:checked ~ .checkmark {
+  background-color: #943634;
+  border-color: #943634;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.form-checkbox input:checked ~ .checkmark:after {
+  display: block;
+  left: 8px;
+  top: 4px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Comment section styling */
+.comment-textarea {
+  width: 100%;
+  min-height: 80px;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  padding: 10px;
+  font-family: Aptos, system-ui, sans-serif;
+  font-size: 14px;
+  color: #505050;
+  resize: vertical;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 992px) {
+  .document-container {
+    padding: 24px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .document-container {
+    padding: 20px;
+  }
+  
+  .content-section {
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 24px;
+  }
+  
+  h2 {
+    font-size: 18px;
+  }
+  
+  .tertiary-content {
+    padding-left: 12px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  body, div, p, li {
+    font-size: 14px;
+  }
+  
+  h1 {
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+  
+  .header-box {
+    padding: 20px;
+  }
+  
+  .content-section {
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .meta-label, .meta-value {
+    display: block;
+    width: 100%;
+  }
+  
+  .meta-label {
+    font-weight: 600;
+    padding-bottom: 0;
+  }
+  
+  .meta-value {
+    padding-top: 0;
+    padding-bottom: 6px;
+  }
+  
+  .enhanced-list, .secondary-list {
+    padding-left: 16px;
+  }
+  
+  .tertiary-list {
+    padding-left: 12px;
+  }
+  
+  .steps-list li {
+    padding-left: 36px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .header-box {
+    box-shadow: none;
+    border-left: 3px solid #943634;
+    background: none;
+  }
+  
+  .content-section {
+    box-shadow: none;
+    border: 1px solid #eee;
+    margin-bottom: 15px;
+    page-break-inside: avoid;
+  }
+  
+  .content-section:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
