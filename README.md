@@ -1,27 +1,31 @@
-# Dayforce HR Style Guide
+# Complete Policy Document Stylesheet (v1.0)
 
-This repository contains the **HR Policy Document Stylesheet (v1.0)**, providing standardized formatting and styling for HR policy documents integrated with Ceridian Dayforce. 
+A comprehensive CSS for creating consistent, professional HR policy documents within our Ceridian Dayforce environment. It unifies typography, spacing, headings, sections, lists, and interactive components to streamline policy presentation.
 
-## Purpose
+---
 
-- **Consistent Look & Feel** – Ensure all HR policy documents use the same typography, spacing, color schemes, and list styles.
-- **Easy Maintenance** – Centralize updates and share a single stylesheet across multiple HR resources or documents.
-- **Professional Appearance** – Present a unified brand and readable layout for employees and administrators using Dayforce.
+## Overview
 
-## Contents
+- **Purpose**: Provide a single, maintainable stylesheet for HR policy documentation to ensure uniform formatting and branding.  
+- **Scope**: Covers color variables, fonts, layout, specialized list styles, panels, and print-friendly rules.  
+- **Last Updated**: February 27, 2025
 
-- **`HR-Policy-Document-Stylesheet-v1.0.css`**  
-  Main stylesheet that defines:
-  - Typography (font families, sizes, weights)
-  - Color variables and background options
-  - Section, heading, and list styles
-  - Utility classes for margins, padding, and alignment
-  - Print-friendly rules
+---
 
-## Installation / Setup
+## Key Features
 
-1. **Clone or download** this repository to your local machine, **or** use the hosted version on GitHub Pages (if you enable it).
-2. **Reference the CSS** file in your HTML or Dayforce document:
+1. **Theming**: Custom properties for colors, spacing, and typography, plus theme variants for different policy types (legal, HR, security).
+2. **Responsive & Print-Friendly**: Media queries for various device sizes, plus optimized print layouts.
+3. **Rich Typography & Layout**: Hierarchical headings, utility classes for spacing and alignment, decorative transitions.
+4. **Advanced Lists & Panels**: Multi-level lists (`.secondary-list`, `.tertiary-list`), callouts (`.policy-notice`, `.policy-warning`), and more.
+5. **Interactive Elements**: Custom checkboxes (`.custom-checkbox`), date pickers, and comment boxes for forms or advanced interactivity.
+
+---
+
+## Usage
+
+1. **Include the CSS**  
+   Add this line to any HTML (or Dayforce custom code editor) in the `<head>`:
    ```html
-   <!-- Example: If you enabled GitHub Pages -->
-   <link rel="stylesheet" href="https://YOUR_USERNAME.github.io/Dayforce-Style-Guide/HR-Policy-Document-Stylesheet-v1.0.css">
+   <link rel="stylesheet"
+         href="https://chrisdoubleu.github.io/Dayforce-Style-Guide/HR-Policy-Document-Stylesheet-v1.0.css">
