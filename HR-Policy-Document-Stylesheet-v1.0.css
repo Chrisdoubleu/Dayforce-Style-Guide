@@ -1,0 +1,1050 @@
+/* ==========================================================================
+   Complete Policy Document Stylesheet (v1.0)
+   Last Updated: February 27, 2025
+   Includes: Typography, Spacing, Headers, Sections, Lists, and Interactive Elements
+   ========================================================================== */
+
+/* ==========================================================================
+   CSS Variables (Custom Properties)
+   ========================================================================== */
+   :root {
+    /* Color palette */
+    --color-primary: #943634;
+    --color-primary-light: rgba(148, 54, 52, 0.15);
+    --color-primary-medium: rgba(148, 54, 52, 0.3);
+    --color-primary-dark: rgba(148, 54, 52, 0.6);
+    
+    /* Text colors */
+    --text-dark: #262626;
+    --text-medium: #4a4a4a;
+    --text-light: #505050;
+    --text-muted: #595959;
+    
+    /* Background colors */
+    --bg-white: #ffffff;
+    --bg-light: #fafafa;
+    --bg-gradient-start: #f8f9fa;
+    --bg-gradient-end: #f0f2f5;
+    
+    /* Spacing variables */
+    --spacing-xs: 6px;    /* Minimal spacing */
+    --spacing-sm: 12px;   /* Small spacing */
+    --spacing-md: 16px;   /* Medium spacing */
+    --spacing-lg: 24px;   /* Large spacing */
+    --spacing-xl: 32px;   /* Extra large spacing */
+    --spacing-xxl: 40px;  /* Double extra large */
+    --spacing-xxxl: 48px; /* Triple extra large */
+    
+    /* Typography */
+    --font-family-primary: 'Aptos', sans-serif;
+    --font-family-headings: 'Aptos Display', sans-serif;
+    --font-size-xs: 12px;          /* Extra small text */
+    --font-size-sm: 14px;          /* Small text, metadata */
+    --font-size-md: 16px;          /* Base text size */
+    --font-size-lg: 18px;          /* Large text, emphasis */
+    --font-size-xl: 22px;          /* Section headings */
+    --font-size-xxl: 28px;         /* Main heading */
+    
+    /* Line heights */
+    --line-height-tight: 1.4;      /* Headings */
+    --line-height-normal: 1.6;     /* Body text */
+    --line-height-relaxed: 1.8;    /* For more readable paragraphs */
+    
+    /* Letter spacing */
+    --letter-spacing-tight: -0.3px;  /* For headings */
+    --letter-spacing-normal: 0;      /* For body text */
+    --letter-spacing-wide: 0.3px;    /* For small text */
+    
+    /* Borders */
+    --border-radius-sm: 2px;
+    --border-radius-md: 5px;
+    --border-radius-lg: 10px;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.02);
+    --shadow-md: 0 2px 8px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.02);
+    --shadow-lg: 0 4px 12px rgba(0,0,0,0.07);
+    --shadow-xl: 0 5px 20px rgba(0,0,0,0.08);
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.25s ease;
+    --transition-slow: 0.3s ease;
+    
+    /* Z-indices */
+    --z-index-base: 1;
+    --z-index-header: 10;
+    
+    /* Container Widths */
+    --container-max-width: 1100px;
+}
+
+/* ==========================================================================
+   Font Declarations
+   ========================================================================== */
+@font-face {
+    font-family: 'Aptos Display';
+    src: url('../fonts/AptosDisplay.woff2') format('woff2'),
+         url('../fonts/AptosDisplay.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap; /* Improve font loading behavior */
+}
+
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family-primary);
+    color: var(--text-medium);
+    line-height: var(--line-height-normal);
+    background-color: var(--bg-light);
+}
+
+/* ==========================================================================
+   Document Container & Layout
+   ========================================================================== */
+.document-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: var(--spacing-xxxl) var(--spacing-xxl);
+    background-color: var(--bg-light);
+    min-height: 100vh;
+}
+
+/* Section transition */
+.section-transition {
+    height: 30px;
+    position: relative;
+}
+
+.section-transition::after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 2px;
+    background-color: rgba(120,40,40,0.1);
+    border-radius: 1px;
+}
+
+/* ==========================================================================
+   Header Box Styling
+   ========================================================================== */
+.header-box {
+    background: linear-gradient(to right, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+    padding: var(--spacing-xxl);
+    border-radius: var(--border-radius-lg);
+    margin-bottom: var(--spacing-xxl);
+    border-left: 5px solid var(--color-primary);
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--transition-slow), box-shadow var(--transition-slow);
+}
+
+/* Header hover effect */
+.header-box:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-xl);
+}
+
+/* Subtle decorative element */
+.header-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle at top right, var(--color-primary-light) 0%, transparent 70%);
+    z-index: 0;
+}
+
+/* Meta information table styling */
+.meta-table {
+    width: auto;
+    border-collapse: separate;
+    border-spacing: 0 2px;
+}
+
+.meta-label {
+    font-size: var(--font-size-sm);
+    padding: var(--spacing-xs) var(--spacing-md) var(--spacing-xs) 0;
+    color: var(--text-medium);
+    font-weight: 500;
+}
+
+.meta-value {
+    font-size: var(--font-size-sm);
+    padding: var(--spacing-xs) 0;
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   Content Section Styling
+   ========================================================================== */
+.content-section {
+    background: var(--bg-white);
+    padding: var(--spacing-xxl);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--spacing-xl);
+    border-top: 3px solid transparent;
+    transition: all var(--transition-normal);
+    position: relative;
+}
+
+/* Section hover state for subtle interaction */
+.content-section:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    border-top-color: var(--color-primary-light);
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-headings);
+    color: var(--color-primary);
+    margin-top: 0;
+}
+
+/* Main heading (h1) */
+h1 {
+    font-size: var(--font-size-xxl);
+    letter-spacing: var(--letter-spacing-tight);
+    line-height: var(--line-height-tight);
+    margin-top: 0;
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-md);
+    font-weight: bold;
+    border-bottom: 2px solid;
+    border-image: linear-gradient(to right, var(--color-primary) 70%, transparent) 1;
+    position: relative;
+}
+
+/* Section heading (h2) */
+h2 {
+    font-size: var(--font-size-xl);
+    line-height: var(--line-height-tight);
+    margin-top: var(--spacing-xxl);
+    margin-bottom: var(--spacing-lg);
+    letter-spacing: var(--letter-spacing-tight);
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+}
+
+/* Visual indicator for section headings */
+h2::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background-color: var(--color-primary-medium);
+    border-radius: var(--border-radius-sm);
+}
+
+/* First h2 in a section should have less top margin */
+.content-section h2:first-child {
+    margin-top: 0;
+}
+
+/* Paragraphs */
+p {
+    margin: var(--spacing-md) 0;
+    font-size: var(--font-size-md);
+}
+
+/* Lead paragraph for major sections */
+.lead-text {
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-tight);
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Content text */
+.content-text {
+    color: var(--text-light);
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-normal);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Last paragraph in content blocks shouldn't have bottom margin */
+.content-section .content-text:last-child {
+    margin-bottom: 0;
+}
+
+/* Text Emphasis Styles */
+.text-emphasis, .strong-text {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.text-critical, .critical-text {
+    font-weight: 600;
+    color: #000000;
+}
+
+.text-muted {
+    color: var(--text-muted);
+    font-size: calc(var(--font-size-md) - 1px);
+}
+
+.text-citation {
+    font-style: italic;
+    color: var(--text-muted);
+}
+
+.text-accent {
+    color: var(--color-primary);
+}
+
+/* ==========================================================================
+   Heading Hierarchy (without numbering)
+   ========================================================================== */
+/* Subsection heading with left border instead of numbering */
+.subsection-heading {
+    display: block;
+    font-size: var(--font-size-lg);
+    color: var(--text-dark);
+    font-family: var(--font-family-headings);
+    font-weight: 600;
+    margin: var(--spacing-xl) 0 var(--spacing-md) 0;
+    position: relative;
+    padding-left: var(--spacing-md);
+    border-left: 4px solid var(--color-primary-dark);
+}
+
+/* Sub-subsection heading with thinner left border */
+.sub-subsection-heading {
+    display: block;
+    font-size: var(--font-size-md);
+    color: var(--text-dark);
+    font-family: var(--font-family-headings);
+    font-weight: 600;
+    font-style: italic;
+    margin: var(--spacing-lg) 0 var(--spacing-sm) 0;
+    position: relative;
+    padding-left: var(--spacing-md);
+    border-left: 2px solid var(--color-primary-medium);
+    margin-left: var(--spacing-md);
+}
+
+/* Definition term styling */
+.definition-term {
+    display: block;
+    font-size: var(--font-size-lg);
+    color: var(--text-dark);
+    font-family: var(--font-family-headings);
+    font-weight: 600;
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
+    position: relative;
+    padding-left: var(--spacing-md);
+}
+
+/* Visual marker for definition terms */
+.definition-term::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 16px;
+    background-color: var(--color-primary-dark);
+    border-radius: var(--border-radius-sm);
+}
+
+/* ==========================================================================
+   List Styles - Secondary Level (Main Content)
+   ========================================================================== */
+/* Unordered list at secondary level */
+.secondary-list, .enhanced-list {
+    margin: var(--spacing-md) 0 var(--spacing-xl);
+    padding-left: var(--spacing-xl);
+    list-style-type: none;
+}
+
+.secondary-list li, .enhanced-list li {
+    position: relative;
+    margin-bottom: var(--spacing-md);
+    padding-left: var(--spacing-md);
+    color: var(--text-light);
+    font-size: var(--font-size-md);
+}
+
+.secondary-list li::before, .enhanced-list li::before {
+    content: "•"; /* round bullet */
+    position: absolute;
+    left: -5px;
+    color: var(--color-primary);
+    font-size: var(--font-size-lg);
+    font-weight: bold;
+}
+
+/* Ordered list at secondary level */
+.secondary-list-ordered, .enhanced-ol {
+    margin: var(--spacing-md) 0 var(--spacing-xl);
+    padding-left: var(--spacing-xl);
+    list-style-type: decimal;
+    counter-reset: item;
+}
+
+.secondary-list-ordered li, .enhanced-ol li {
+    position: relative;
+    margin-bottom: var(--spacing-md);
+    padding-left: var(--spacing-xs);
+    color: var(--text-light);
+    font-size: var(--font-size-md);
+}
+
+.secondary-list-ordered li::marker, .enhanced-ol li::marker {
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+/* ==========================================================================
+   List Styles - Tertiary Level
+   ========================================================================== */
+/* Content container */
+.tertiary-content {
+    margin-bottom: var(--spacing-lg);
+    padding-left: var(--spacing-md);
+}
+
+/* Unordered list at tertiary level */
+.tertiary-list {
+    margin: var(--spacing-sm) 0 var(--spacing-lg);
+    padding-left: var(--spacing-lg);
+    list-style-type: none;
+}
+
+.tertiary-list li {
+    position: relative;
+    margin-bottom: var(--spacing-sm);
+    padding-left: var(--spacing-sm);
+    color: var(--text-light);
+    font-size: var(--font-size-md);
+}
+
+.tertiary-list li::before {
+    content: "○"; /* hollow circle */
+    position: absolute;
+    left: -5px;
+    color: var(--color-primary);
+    font-size: var(--font-size-md);
+}
+
+/* Ordered list at tertiary level */
+.tertiary-list-ordered {
+    margin: var(--spacing-sm) 0 var(--spacing-lg);
+    padding-left: var(--spacing-lg);
+    list-style-type: lower-alpha; /* a, b, c, etc. */
+}
+
+.tertiary-list-ordered li {
+    position: relative;
+    margin-bottom: var(--spacing-sm);
+    padding-left: var(--spacing-xs);
+    color: var(--text-light);
+    font-size: var(--font-size-md);
+}
+
+.tertiary-list-ordered li::marker {
+    font-weight: normal;
+    color: var(--color-primary);
+}
+
+/* ==========================================================================
+   List Styles - Quaternary Level
+   ========================================================================== */
+/* Content container */
+.quaternary-content {
+    margin-bottom: var(--spacing-md);
+    padding-left: var(--spacing-xl);
+}
+
+/* Unordered list at quaternary level */
+.quaternary-list {
+    margin: var(--spacing-xs) 0 var(--spacing-md);
+    padding-left: var(--spacing-md);
+    list-style-type: none;
+}
+
+.quaternary-list li {
+    position: relative;
+    margin-bottom: var(--spacing-xs);
+    padding-left: var(--spacing-sm);
+    color: var(--text-light);
+    font-size: var(--font-size-md);
+}
+
+.quaternary-list li::before {
+    content: "-"; /* dash */
+    position: absolute;
+    left: -2px;
+    color: var(--color-primary);
+}
+
+/* Ordered list at quaternary level */
+.quaternary-list-ordered {
+    margin: var(--spacing-xs) 0 var(--spacing-md);
+    padding-left: var(--spacing-md);
+    list-style-type: lower-roman; /* i, ii, iii, etc. */
+}
+
+.quaternary-list-ordered li {
+    position: relative;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-light);
+    font-size: var(--font-size-md);
+}
+
+.quaternary-list-ordered li::marker {
+    font-size: calc(var(--font-size-md) - 1px);
+    color: var(--color-primary);
+}
+
+/* ==========================================================================
+   Special List Types
+   ========================================================================== */
+/* Checklist style */
+.checklist {
+    list-style-type: none;
+    margin: var(--spacing-md) 0;
+    padding-left: var(--spacing-md);
+}
+
+.checklist li {
+    position: relative;
+    padding-left: var(--spacing-xl);
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-light);
+    font-size: var(--font-size-md);
+}
+
+.checklist li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
+/* Step-by-step instructions */
+.steps-list {
+    counter-reset: steps;
+    list-style-type: none;
+    margin: var(--spacing-md) 0 var(--spacing-xl);
+    padding-left: var(--spacing-sm);
+}
+
+.steps-list li {
+    position: relative;
+    padding-left: var(--spacing-xxxl);
+    margin-bottom: var(--spacing-lg);
+    min-height: var(--spacing-xxl);
+    color: var(--text-light);
+    font-size: var(--font-size-md);
+}
+
+.steps-list li::before {
+    counter-increment: steps;
+    content: counter(steps);
+    position: absolute;
+    left: 0;
+    top: -2px;
+    width: 30px;
+    height: 30px;
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    font-weight: bold;
+}
+
+/* Two-column list for compact display */
+.two-column-list {
+    column-count: 2;
+    column-gap: var(--spacing-xl);
+    list-style-position: inside;
+    padding-left: var(--spacing-md);
+    margin: var(--spacing-md) 0 var(--spacing-xl);
+}
+
+.two-column-list li {
+    margin-bottom: var(--spacing-sm);
+    page-break-inside: avoid;
+    break-inside: avoid;
+    color: var(--text-light);
+    font-size: var(--font-size-md);
+}
+
+/* ==========================================================================
+   Definition Lists
+   ========================================================================== */
+/* Secondary level definition list */
+.secondary-def-list {
+    margin: var(--spacing-md) 0 var(--spacing-xl);
+}
+
+.secondary-def-term {
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: var(--font-size-md);
+    margin-bottom: var(--spacing-xs);
+}
+
+.secondary-def-description {
+    margin-left: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    color: var(--text-light);
+    font-size: var(--font-size-md);
+}
+
+/* Tertiary level definition list */
+.tertiary-def-list {
+    margin: var(--spacing-sm) 0 var(--spacing-lg);
+}
+
+.tertiary-def-term {
+    font-weight: 600;
+    font-style: italic;
+    color: var(--text-dark);
+    font-size: var(--font-size-md);
+    margin-bottom: var(--spacing-xs);
+}
+
+.tertiary-def-description {
+    margin-left: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    color: var(--text-light);
+    font-size: var(--font-size-md);
+}
+
+/* Quaternary level definition list */
+.quaternary-def-list {
+    margin: var(--spacing-xs) 0 var(--spacing-md);
+}
+
+.quaternary-def-term {
+    font-weight: 600;
+    font-style: italic;
+    color: var(--text-dark);
+    font-size: calc(var(--font-size-md) - 1px);
+    margin-bottom: var(--spacing-xs);
+}
+
+.quaternary-def-description {
+    margin-left: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-light);
+    font-size: var(--font-size-md);
+}
+
+/* ==========================================================================
+   Interactive Elements - Panels
+   ========================================================================== */
+/* Enhanced panel styling */
+.panel-heading {
+    background: linear-gradient(to right, var(--bg-gradient-end), #ffffff);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: 6px 6px 0 0;
+    border-left: 4px solid var(--color-primary);
+    font-family: var(--font-family-headings);
+    font-weight: 600;
+    color: var(--color-primary);
+    font-size: var(--font-size-lg);
+}
+
+.panel-content {
+    padding: var(--spacing-lg);
+    background-color: #ffffff;
+    border-radius: 0 0 6px 6px;
+    box-shadow: var(--shadow-md);
+}
+
+/* Policy panels */
+.policy-notice {
+    background-color: #fff8dc;
+    border-left: 4px solid #f0e68c;
+    padding: var(--spacing-md) var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+    border-radius: var(--border-radius-sm);
+}
+
+.policy-warning {
+    background-color: #fff5f5;
+    border-left: 4px solid #ffcccc;
+    padding: var(--spacing-md) var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+    border-radius: var(--border-radius-sm);
+}
+
+.policy-callout {
+    background-color: #f5f9ff;
+    border-left: 4px solid #cce0ff;
+    padding: var(--spacing-md) var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+    border-radius: var(--border-radius-sm);
+}
+
+/* ==========================================================================
+   Interactive Elements - Form Controls
+   ========================================================================== */
+/* Enhanced checkbox styling */
+.custom-checkbox, .form-checkbox {
+    position: relative;
+    padding-left: 34px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: var(--font-size-md);
+    color: var(--text-light);
+    user-select: none;
+    line-height: 1.5;
+    margin: var(--spacing-sm) 0;
+}
+
+.custom-checkbox input, .form-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 22px;
+    width: 22px;
+    background-color: #f5f5f5;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    transition: all var(--transition-fast);
+}
+
+.custom-checkbox:hover input ~ .checkmark, 
+.form-checkbox:hover input ~ .checkmark {
+    background-color: #eaeaea;
+    border-color: #cccccc;
+}
+
+.custom-checkbox input:checked ~ .checkmark,
+.form-checkbox input:checked ~ .checkmark {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.custom-checkbox input:checked ~ .checkmark:after,
+.form-checkbox input:checked ~ .checkmark:after {
+    display: block;
+    left: 8px;
+    top: 4px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* Date field styling */
+.date-label {
+    font-family: var(--font-family-headings);
+    font-weight: 500;
+    color: var(--text-medium);
+    padding-right: 10px;
+    text-align: right;
+}
+
+.custom-date-picker {
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-sm);
+    color: var(--text-light);
+    background-color: #f9f9f9;
+    transition: border-color var(--transition-fast);
+}
+
+/* Comment section styling */
+.comment-container {
+    margin-top: var(--spacing-lg);
+}
+
+.comment-label {
+    font-family: var(--font-family-headings);
+    font-weight: 500;
+    color: var(--text-medium);
+    margin-bottom: 6px;
+}
+
+.comment-textarea {
+    width: 100%;
+    min-height: 80px;
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+    padding: 10px;
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-sm);
+    color: var(--text-light);
+    resize: vertical;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+/* ==========================================================================
+   Utility Classes
+   ========================================================================== */
+.mt-0 { margin-top: 0; }
+.mb-0 { margin-bottom: 0; }
+.mb-sm { margin-bottom: var(--spacing-sm); }
+.mb-md { margin-bottom: var(--spacing-md); }
+.mb-lg { margin-bottom: var(--spacing-lg); }
+.mb-xl { margin-bottom: var(--spacing-xl); }
+
+.mt-sm { margin-top: var(--spacing-sm); }
+.mt-md { margin-top: var(--spacing-md); }
+.mt-lg { margin-top: var(--spacing-lg); }
+.mt-xl { margin-top: var(--spacing-xl); }
+
+.pb-0 { padding-bottom: 0; }
+.pb-sm { padding-bottom: var(--spacing-sm); }
+.pb-md { padding-bottom: var(--spacing-md); }
+.pb-lg { padding-bottom: var(--spacing-lg); }
+
+.pt-0 { padding-top: 0; }
+.pt-sm { padding-top: var(--spacing-sm); }
+.pt-md { padding-top: var(--spacing-md); }
+.pt-lg { padding-top: var(--spacing-lg); }
+
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+.hidden { display: none; }
+.visible { display: block; }
+
+/* ==========================================================================
+   Print Styles
+   ========================================================================== */
+@media print {
+    body {
+        background-color: #fff;
+        color: #000;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .document-container {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .content-section {
+        page-break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+        margin-bottom: 20px;
+    }
+    
+    .header-box {
+        background: none;
+        border-left: none;
+        box-shadow: none;
+        padding: 10px 0;
+        border-bottom: 2px solid var(--color-primary);
+    }
+    
+    .header-box::before {
+        display: none;
+    }
+    
+    h1, h2, .subsection-heading, .definition-term {
+        color: #000;
+    }
+    
+    a {
+        color: #000;
+        text-decoration: underline;
+    }
+    
+    .no-print {
+        display: none !important;
+    }
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+@media only screen and (max-width: 1200px) {
+    :root {
+        --container-max-width: 95%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    :root {
+        --spacing-xxl: 32px;
+        --spacing-xxxl: 40px;
+    }
+    
+    .document-container {
+        padding: var(--spacing-lg);
+    }
+    
+    .content-section {
+        padding: var(--spacing-lg);
+    }
+    
+    .meta-table {
+        width: 100%;
+    }
+    
+    .tertiary-content,
+    .quaternary-content {
+        padding-left: var(--spacing-sm);
+    }
+    
+    .two-column-list {
+        column-count: 1; /* Single column on tablet */
+    }
+    
+    .steps-list li {
+        padding-left: var(--spacing-xl);
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    :root {
+        --font-size-md: 15px;
+        --font-size-lg: 17px;
+        --font-size-xl: 20px;
+        --font-size-xxl: 24px;
+        
+        --spacing-lg: 20px;
+        --spacing-xl: 24px;
+        --spacing-xxl: 28px;
+    }
+    
+    h1 { 
+        font-size: var(--font-size-xxl);
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .header-box { 
+        padding: var(--spacing-lg);
+    }
+    
+    .content-section {
+        padding: var(--spacing-lg);
+    }
+    
+    .meta-label, .meta-value {
+        display: block;
+        width: 100%;
+    }
+    
+    .meta-label {
+        font-weight: 600;
+        padding-bottom: 0;
+    }
+    
+    .meta-value {
+        padding-top: 0;
+        padding-bottom: var(--spacing-sm);
+    }
+    
+    /* Reduce indentation on mobile */
+    .secondary-list,
+    .secondary-list-ordered,
+    .enhanced-list,
+    .enhanced-ol {
+        padding-left: var(--spacing-lg);
+    }
+    
+    .tertiary-list,
+    .tertiary-list-ordered {
+        padding-left: var(--spacing-md);
+    }
+    
+    .quaternary-list,
+    .quaternary-list-ordered {
+        padding-left: var(--spacing-sm);
+    }
+    
+    .tertiary-content {
+        padding-left: var(--spacing-xs);
+    }
+    
+    .quaternary-content {
+        padding-left: var(--spacing-sm);
+    }
+    
+    .subsection-heading {
+        padding-left: var(--spacing-sm);
+    }
+    
+    .sub-subsection-heading {
+        padding-left: var(--spacing-sm);
+        margin-left: var(--spacing-xs);
+    }
+}
+
+/* ==========================================================================
+   Theme Variation Support (for future policy type variations)
+   ========================================================================== */
+/* Standard policy (default) - Uses default theme values */
+
+/* Legal policy variant */
+.policy-theme-legal {
+    --color-primary: #2c3e50;
+}
+
+.policy-theme-legal .header-box {
+    border-left-color: var(--color-primary);
+}
+
+/* HR policy variant */
+.policy-theme-hr {
+    --color-primary: #27ae60;
+}
+
+.policy-theme-hr .header-box {
+    border-left-color: var(--color-primary);
+}
+
+/* Security policy variant */
+.policy-theme-security {
+    --color-primary: #c0392b;
+}
+
+.policy-theme-security .header-box {
+    border-left-color: var(--color-primary);
+}
